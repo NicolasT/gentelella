@@ -1,4 +1,4 @@
 export App from './lib/App';
 export Footer from './lib/Footer';
-export SideBar from './lib/SideBar';
+export Sidebar from './lib/Sidebar';
 export TopNav from './lib/TopNav';

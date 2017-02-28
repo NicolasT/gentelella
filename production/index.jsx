@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { App, Footer, SideBar, TopNav } from '..';
+import { App, Footer, Sidebar, TopNav } from '..';
+
+import img from './images/img.jpg';
 
 const pageContent = (
         <div className="right_col" role="main">
@@ -59,9 +61,55 @@ const pageContent = (
 
 ReactDOM.render(
   <App>
-    <SideBar />
-    <TopNav />
+    <Sidebar>
+      <Sidebar.Title logo={<i className="fa fa-paw"></i>} title='Gentelella Alela!' />
+      <div className="clearfix"></div>
+      <Sidebar.Profile avatar={img} name="John Doe" />
+      <br />
+
+      <Sidebar.Menu>
+        <Sidebar.Menu.Section title='General'>
+          <Sidebar.Menu.Section.Category icon="home" title="Home">
+            <li><a href='#'>Dashboard</a></li>
+            <li><a href='#'>Dasboard2</a></li>
+            <li><a href='#'>Dasboard3</a></li>
+          </Sidebar.Menu.Section.Category>
+          <Sidebar.Menu.Section.Category icon='edit' title='Forms'>
+            <li><a href='#'>General Form</a></li>
+            <li><a href='#'>Advanced Components</a></li>
+          </Sidebar.Menu.Section.Category>
+        </Sidebar.Menu.Section>
+        <Sidebar.Menu.Section title='Live On'>
+          <Sidebar.Menu.Section.Category icon='bug' title='Additional Pages'>
+            <li><a href='#'>E-commerce</a></li>
+          </Sidebar.Menu.Section.Category>
+        </Sidebar.Menu.Section>
+      </Sidebar.Menu>
+
+      <Sidebar.Footer>
+        <Sidebar.Footer.Entry icon='cog' title='Settings' />
+        <Sidebar.Footer.Entry icon='fullscreen' title='FullScreen' />
+        <Sidebar.Footer.Entry icon='eye-close' title='Lock' />
+        <Sidebar.Footer.Entry icon='off' title='Logout' />
+      </Sidebar.Footer>
+    </Sidebar>
+
+    <TopNav>
+      <li>
+        <a href='#' className='user-profile dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+          <img src={img} alt='' />John Doe
+          <span className='fa fa-angle-down'></span>
+        </a>
+        <ul className='dropdown-menu dropdown-usermenu pull-right'>
+          <li><a href='#'> Profile</a></li>
+          <li><a href='#'> Help</a></li>
+          <li><a href='#'><i className='fa fa-sign-out pull-right'></i> Log Out</a></li>
+        </ul>
+      </li>
+    </TopNav>
+
     {pageContent}
+
     <Footer>
       Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
     </Footer>
@@ -69,8 +117,6 @@ ReactDOM.render(
   document.getElementById('content'),
 );
 
-require('../vendors/jquery/dist/jquery.min.js');
-require('../vendors/bootstrap/dist/js/bootstrap.min.js');
 require('../vendors/fastclick/lib/fastclick.js');
 require('../vendors/nprogress/nprogress.js');
 require('../src/js/helpers/smartresize.js');
